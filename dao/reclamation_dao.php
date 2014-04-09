@@ -23,6 +23,7 @@ class reclamationDao {
         $u = new utilisateurDao();
         $l = new LieuDao();
         $d = new domaine_dao();
+        $doc = new DocumentDao();
         $g = new GeolocalisationDAO();
         $documentDao = new DocumentDao();
         $commentaireDao = new commentaire_dao();
@@ -34,6 +35,7 @@ class reclamationDao {
             $reclamation->setEtat($result_array["etat"]);
             $reclamation->setDate($result_array["date"]);
             $reclamation->setHeure($result_array["heure"]);
+            $reclamation->setListDoc($doc->getDocumentByIdReclamation($result_array["id"]));
             $reclamation->setCommentaires($commentaireDao->getByidReclamation($result_array["id"]));
             if ($result_array["idcitoyen"] != "")
                 $reclamation->setCitoyen($u->getUserById($result_array["idcitoyen"]));

@@ -18,12 +18,9 @@ class DocumentXMLParser {
         $oXMLWriter->startElement('documents');
             foreach($list as $document){
                 $oXMLWriter->startElement('document');
-                    $oXMLWriter->startElement('nom');
-                           $oXMLWriter->text($document->getNom());
+                    $oXMLWriter->startElement('id');
+                           $oXMLWriter->text($document->getId());
                     $oXMLWriter->endElement();
-                    $oXMLWriter->startElement('content');
-                           $oXMLWriter->text(base64_encode($document->getContent()));
-                    $oXMLWriter->endElement();        
                 $oXMLWriter->endElement();
             }
             

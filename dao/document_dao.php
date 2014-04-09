@@ -20,9 +20,10 @@ class DocumentDao {
         $result = mysql_query($sql) or die(mysql_error());
         $list = array();
 
-        while($result_array = mysql_fetch_array($result)) {
+        while ($result_array = mysql_fetch_array($result)) {
 
             $document = new DocumentEntity();
+            $document->setId($result_array["id"]);
             $document->setIdreclamation($result_array["idreclamation"]);
             $document->setContent($result_array["content"]);
             $document->setNom($result_array["nom"]);
@@ -32,6 +33,25 @@ class DocumentDao {
             $list[] = $document;
         }
         return $list;
+    }
+
+    function getDocumentById($id) {
+        $sql = "select * from document where type = 1 and id = " . $id;
+        $result = mysql_query($sql) or die(mysql_error());
+        $list = array();
+        $document = "";
+        if ($result_array = mysql_fetch_array($result)) {
+
+            $document = new DocumentEntity();
+            $document->setId($result_array["id"]);
+            $document->setIdreclamation($result_array["idreclamation"]);
+            $document->setContent($result_array["content"]);
+            $document->setNom($result_array["nom"]);
+            $document->setType($result_array["type"]);
+            $document->setUrl($result_array["url"]);
+
+        }
+        return $document;
     }
 
     function insertDocument(DocumentEntity $doc) {

@@ -84,6 +84,15 @@ class ReclamationXMLParser {
                    $oXMLWriter->endElement();
                    }
                    $oXMLWriter->endElement();
+                    $oXMLWriter->startElement('documents');
+            foreach ($recalamtion->getListDoc() as $document) {
+                $oXMLWriter->startElement('document');
+                $oXMLWriter->startElement('id-document');
+                $oXMLWriter->text($document->getId());
+                $oXMLWriter->endElement();
+                $oXMLWriter->endElement();
+            }
+            $oXMLWriter->endElement();
                    $oXMLWriter->startElement('ville');
                         $oXMLWriter->text($recalamtion->getlieu());
                    $oXMLWriter->endElement();

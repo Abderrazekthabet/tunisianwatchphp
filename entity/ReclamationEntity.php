@@ -15,7 +15,8 @@ class ReclamationEntity {
     private $geolocalisation;
     private $lieu;
     private $commentaires;
-
+    private $listDoc;
+    
     public function getCommentaires() {
         return $this->commentaires;
     }
@@ -28,9 +29,18 @@ class ReclamationEntity {
         
     function __construct() {
         $commentaires = array();
+        $listDoc = array();
+    }
+    
+    public function setListDoc($listDoc) {
+        $this->listDoc = $listDoc;
     }
 
-    public function getId() {
+    public function getListDoc() {
+        return $this->listDoc;
+    }
+
+        public function getId() {
         return $this->id;
     }
 
