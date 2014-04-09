@@ -13,7 +13,7 @@ class LoginXMLParser {
     }
 
     function setXML($utilisateur) {
-       // header('Content-type: text/xml; charset=UTF-8');
+        header('Content-type: text/xml; charset=UTF-8');
         $oXMLWriter = new XMLWriter;
         $oXMLWriter->openMemory();
         $oXMLWriter->startDocument('1.0', 'UTF-8');

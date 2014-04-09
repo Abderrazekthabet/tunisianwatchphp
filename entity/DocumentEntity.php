@@ -6,7 +6,6 @@ class DocumentEntity{
     private $idreclamation;
     private $type;
     private $url;
-    private $content;
             
     function __construct() {
         
@@ -33,10 +32,7 @@ class DocumentEntity{
         return $this->url;
     }
 
-    public function getContent() {
-        return $this->content;
-    }
-
+   
 
     public function setId($id) {
         $this->id = $id;
@@ -58,11 +54,6 @@ class DocumentEntity{
         $this->url = $url;
     }
 
-    public function setContent($content) {
-        $this->content = $content;
-    }
-
-
-
+   
 }
 ?>

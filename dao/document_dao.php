@@ -25,7 +25,6 @@ class DocumentDao {
             $document = new DocumentEntity();
             $document->setId($result_array["id"]);
             $document->setIdreclamation($result_array["idreclamation"]);
-            $document->setContent($result_array["content"]);
             $document->setNom($result_array["nom"]);
             $document->setType($result_array["type"]);
             $document->setUrl($result_array["url"]);
@@ -45,7 +44,6 @@ class DocumentDao {
             $document = new DocumentEntity();
             $document->setId($result_array["id"]);
             $document->setIdreclamation($result_array["idreclamation"]);
-            $document->setContent($result_array["content"]);
             $document->setNom($result_array["nom"]);
             $document->setType($result_array["type"]);
             $document->setUrl($result_array["url"]);
@@ -65,10 +63,8 @@ class DocumentDao {
             $url = $doc->getUrl();
         if ($type != 1)
             $content = "null";
-        else
-            $content = $doc->getContent();
 
-        $req = "INSERT INTO `document` (`idreclamation`, `nom`, `type`, `url`, `content`) VALUES ('$idReclamation', '$nom', '$type', '$url', '$content')";
+        $req = "INSERT INTO `document` (`idreclamation`, `nom`, `type`, `url`) VALUES ('$idReclamation', '$nom', '$type', '$url')";
         $id = mysql_query($req) or die(mysql_error());
         return $id;
     }
